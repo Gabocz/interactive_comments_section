@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import Container from './components/Container';
+import {CurrentUser} from './data';
+import {CommentsData} from './data';
+import {useState} from 'react';
+
+let allComments = []
+function getAllComments () {
+    for (let comment of CommentsData) {
+      allComments.push(comment)
+      for(let reply of comment.replies) {
+        allComments.push(reply)
+      }
+    }
+   return allComments
+}
+
+getAllComments()
+
 
 function App() {
+  const [presentUser, SetPresentUser] = useState(CurrentUser)
+  const [comments, SetComments] = useState(allComments)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Container comments={comments} presentUser={presentUser} SetComments={SetComments}/>
+      
     </div>
   );
 }

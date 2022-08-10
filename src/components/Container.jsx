@@ -1,26 +1,21 @@
 import Comment from "./Comment"
-import PresUserComment from "./PresUserComment"
-import {useState} from 'react'
+import NewComment from "./NewComment"
 
-function Container({comments, presentUser, SetComments}) {
-  
+
+function Container({comments, presentUser, createNewComment, deleteComment, updateComment}) {
+   
  
-  const deleteComment = (IdToDelete) => {
-    const newComments = comments.filter(comment => comment.id !== IdToDelete)
-    SetComments(newComments, ...comments)
-  }
-
-       return (
+      return (
         <main className="container">
             
             {comments.map((comment) => {
                return (
                 <div>
-                  <Comment comment={comment} key={comment.id} presentUser={presentUser} deleteComment={deleteComment}/>
+                  <Comment comment={comment} key={comment.id} presentUser={presentUser} deleteComment={deleteComment} updateComment={updateComment}/>
                  </div>
                )
               })}
-              <PresUserComment presentUser={presentUser}/>
+              <NewComment presentUser={presentUser} createNewComment={createNewComment}/>
             
         </main>
     )

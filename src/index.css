@@ -39,7 +39,8 @@ body {
   width: 750px;
   background-color: var(--white);
   border-radius: 8px;
-  padding: 20px;
+  padding: 15px;
+  position: relative;
 }
 
 .card.reply {
@@ -51,10 +52,10 @@ body {
   display: flex;
 }
 
+
 .user {
   display: flex;
   align-items: center;
-  position: relative;
 }
 
 .profileImg {
@@ -83,6 +84,8 @@ body {
 .commentText {
   color: var(--grayishBlue);
   margin-top: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
 .ratingComponent {
@@ -115,7 +118,8 @@ body {
 
 .btnComponent {
   position: absolute;
-  right: 10px;
+  right: 20px;
+  top: 20px;
   font-weight: 900;
   border: none;
 }
@@ -167,9 +171,8 @@ body {
 
 }
 
-.presUserComment {
+.newComment {
   position: relative;
-  /* display: none; */
  }
 
 .textarea {
@@ -183,7 +186,11 @@ body {
   color: var(--darkBlue);
   margin-left: 50px;
   }
-
+ 
+  .textarea.edit {
+    margin-left: 0;
+  }
+  
   .textarea:hover {
     cursor: pointer;
   }
@@ -202,7 +209,17 @@ body {
   right: 20px;
 }
 
+.button.active.update {
+   display: block;
+   align-self: flex-end;
+   margin-top: 20px;
+}
+
 .button.active.reply:hover {
+  opacity: 0.5;
+}
+
+.button.active.update:hover {
   opacity: 0.5;
 }
 

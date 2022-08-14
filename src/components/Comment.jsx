@@ -3,21 +3,26 @@ import ReplyBtnComponent from "./ReplyBtnComponent"
 import DeleteBtnComponent from "./DeleteBtnComponent"
 import EditBtnComponent from "./EditBtnComponent"
 import EditForm from "./EditForm"
+import ReplyForm from "./ReplyForm"
+import CurrentUserSign from "./CurrentUserSign"
 import {useState} from 'react'
 
-function Comment({comment, presentUser, setIdToDelete, deleteComment, updateComment}) {
+function Comment({comment, presentUser, setIdToDelete, deleteComment, updateComment, addNewReply}) {
     const user = comment.user
     const id = comment.id
     const [isBeingEdited, setIsBeingEdited] = useState(false)
-   
+    const [showReplyForm, setShowReplyForm] = useState(false)
+    const [clickedId, setClickedId] = useState(id)
 
-    return (
+    return ( 
+        <>
            <div className={comment.replyingTo ? "card comment reply" : "card comment"}  id={id}>
-              <RatingComponent comment={comment}/>
+              <RatingComponent comment={comment} presentUser={presentUser}/>
                <div>
                  <div className="user">
                  <img className="profileImg" src={user.image.png} alt="user" />
                  <span className="username">{user.username}</span>
+                 {presentUser.username===user.username && <CurrentUserSign/>}
                  <span className="createdAt">{comment.createdAt}</span>
               </div>
               <div className="commentText">
@@ -27,8 +32,10 @@ function Comment({comment, presentUser, setIdToDelete, deleteComment, updateComm
               </div>
                  {presentUser.username===user.username && <DeleteBtnComponent id={id} setIdToDelete={setIdToDelete} deleteComment={deleteComment}/>}
                  {presentUser.username===user.username && <EditBtnComponent setIsBeingEdited={setIsBeingEdited} id={id}/>}
-                 {presentUser.username!==user.username && <ReplyBtnComponent/>}
-        </div>
+                 {presentUser.username!==user.username && <ReplyBtnComponent setShowReplyForm={setShowReplyForm} id={id} setClickedId={setClickedId}/>}
+           </div>
+           {showReplyForm && clickedId === id && <ReplyForm presentUser={presentUser} id={comment.id} replyingTo={user.username} addNewReply={addNewReply} setShowReplyForm={setShowReplyForm}/>}
+        </>
         )
 }
 

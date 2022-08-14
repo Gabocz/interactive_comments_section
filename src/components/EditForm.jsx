@@ -3,6 +3,7 @@ import {useState} from 'react'
 function EditForm({comment, id, updateComment, setIsBeingEdited}) {
     const [commentContent, setCommentContent] = useState(comment.content)
     
+    
 
     const handleInputChange = (e) => {
         const updatedCommentContent = e.target.value.replace(`@${comment.replyingTo}`, '')

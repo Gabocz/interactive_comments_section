@@ -2,7 +2,7 @@ import MinusBtn from "./MinusBtn"
 import PlusBtn from "./PlusBtn"
 import {useState, useEffect} from 'react'
 
-function RatingComponent({comment}) {
+function RatingComponent({comment, presentUser}) {
    const commScore = comment.score
    const [score, setScore] = useState(commScore)
    const [minusBtnClicked, setMinusBtnClicked] = useState(false)
@@ -22,9 +22,9 @@ function RatingComponent({comment}) {
 
        return (
         <div className="ratingComponent">
-            <PlusBtn score={score} setScore={setScore} setPlusBtnClicked={setPlusBtnClicked} plusBtnClicked={plusBtnClicked}/>
+            <PlusBtn comment={comment} presentUser={presentUser} score={score} setScore={setScore} setPlusBtnClicked={setPlusBtnClicked} plusBtnClicked={plusBtnClicked}/>
             <span className="score">{score}</span>
-            <MinusBtn score={score} setScore={setScore} setMinusBtnClicked={setMinusBtnClicked} minusBtnClicked={minusBtnClicked}/>
+            <MinusBtn comment={comment} presentUser={presentUser} score={score} setScore={setScore} setMinusBtnClicked={setMinusBtnClicked} minusBtnClicked={minusBtnClicked}/>
         </div>
     )
 }

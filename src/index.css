@@ -48,6 +48,10 @@ body {
   transform: translateX(100px); 
 }
 
+.addMarginTop {
+  margin-top: 20px;
+}
+
 .comment {
   display: flex;
 }
@@ -171,9 +175,6 @@ body {
 
 }
 
-.newComment {
-  position: relative;
- }
 
 .textarea {
   border-radius: 8px;
@@ -191,9 +192,6 @@ body {
     margin-left: 0;
   }
   
-  .textarea:hover {
-    cursor: pointer;
-  }
 
 .button.active {
   background-color: var(--moderateBlue);
@@ -223,11 +221,20 @@ body {
   opacity: 0.5;
 }
 
-.notAllowed {
+.button.notAllowed:hover {
   cursor: not-allowed;
 }
 
+.warning {
+  color: red;
+  font-size: 11px;
+  margin-left: 50px;
+  margin-top: 2px;
+}
 
+.hidden {
+  display: none;
+}
 
 
 

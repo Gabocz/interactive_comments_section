@@ -1,9 +1,7 @@
-function DeleteBtnComponent({id, deleteComment}) {
+function DeleteBtnComponent({id, setShowConfirmation, setClickedId}) {
     const handleClick = () => {
-        // window.confirm("Are you sure you want to delete this comment?")
-        // if(window.confirm) {
-            deleteComment(id)
-        // }
+        setClickedId(id)
+        setShowConfirmation(true)
     }
     return (
         <div className="btnComponent delete" id={id} onClick={handleClick}>

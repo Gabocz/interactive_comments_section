@@ -7,12 +7,11 @@ import ReplyForm from "./ReplyForm"
 import CurrentUserSign from "./CurrentUserSign"
 import {useState} from 'react'
 
-function Comment({comment, presentUser, setIdToDelete, deleteComment, updateComment, addNewReply}) {
+function Comment({comment, presentUser, updateComment, addNewReply, setShowConfirmation, deleteComment, confirmDelete, setClickedId}) {
     const user = comment.user
     const id = comment.id
     const [isBeingEdited, setIsBeingEdited] = useState(false)
     const [showReplyForm, setShowReplyForm] = useState(false)
-    const [clickedId, setClickedId] = useState(id)
 
     return ( 
         <>
@@ -30,11 +29,15 @@ function Comment({comment, presentUser, setIdToDelete, deleteComment, updateComm
                  { !isBeingEdited && <p> {comment.replyingTo && <span className="replyingTo">@{comment.replyingTo}</span>} {comment.content}</p> }
                </div>
               </div>
-                 {presentUser.username===user.username && <DeleteBtnComponent id={id} setIdToDelete={setIdToDelete} deleteComment={deleteComment}/>}
-                 {presentUser.username===user.username && <EditBtnComponent setIsBeingEdited={setIsBeingEdited} id={id}/>}
-                 {presentUser.username!==user.username && <ReplyBtnComponent setShowReplyForm={setShowReplyForm} id={id} setClickedId={setClickedId}/>}
+                 {presentUser.username===user.username && <DeleteBtnComponent setShowConfirmation={setShowConfirmation} id={id} deleteComment={deleteComment} confirmDelete={confirmDelete} setClickedId={setClickedId}/>}
+                 {presentUser.username===user.username && <EditBtnComponent setIsBeingEdited={setIsBeingEdited}/>}
+                 {presentUser.username!==user.username && <ReplyBtnComponent setShowReplyForm={setShowReplyForm}/>}
            </div>
-           {showReplyForm && clickedId === id && <ReplyForm presentUser={presentUser} id={comment.id} replyingTo={user.username} addNewReply={addNewReply} setShowReplyForm={setShowReplyForm}/>}
+           {showReplyForm && <ReplyForm 
+              presentUser={presentUser} 
+              id={comment.id} 
+              replyingTo={user.username} 
+              addNewReply={addNewReply} setShowReplyForm={setShowReplyForm}/>}
         </>
         )
 }

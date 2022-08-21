@@ -1,8 +1,7 @@
-function ReplyBtnComponent({setShowReplyForm, id, setClickedId}) {
+function ReplyBtnComponent({setShowReplyForm}) {
 
    const handleClick = () => {
     setShowReplyForm(true)
-    setClickedId(id)
    }
 
     return (

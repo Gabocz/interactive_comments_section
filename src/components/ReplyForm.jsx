@@ -1,20 +1,29 @@
 import {useState} from 'react'
+import CancelBtn from './CancelBtn'
 import Warning from './Warning'
 
 function ReplyForm({presentUser, replyingTo, addNewReply, id, setShowReplyForm}) {
-    const [replyContent, setReplyContent] = useState(`@${replyingTo}`)
+    const [replyContent, setReplyContent] = useState('')
     const [showWarning, setShowWarning] = useState(false)
 
     const handleInputChange = (e) => {
       setReplyContent(e.target.value.replace(`@${replyingTo} `, ''))
-      if(e.target.value.replace(`@${replyingTo} `, '').length < 10 && e.target.value.length < 300) setShowWarning(true)
+      if(replyContent.length < 10) {
+          setShowWarning(true)
+      } else {
+          setShowWarning(false)
+
+      }
       }
    
    const handleSubmit = (e) => {
     e.preventDefault()
-    addNewReply(replyContent, replyingTo, id)
-    setShowReplyForm(false)
-    setShowWarning(false)
+    if(replyContent.length > 10) {
+       addNewReply(replyContent, replyingTo, id)
+       setShowReplyForm(false)
+       setShowWarning(false)
+    }
+    
    }
 
 
@@ -25,8 +34,8 @@ function ReplyForm({presentUser, replyingTo, addNewReply, id, setShowReplyForm})
                 <textarea 
                    className="textarea" 
                    name="content"
-                   cols="50" 
-                   rows="3"
+                   cols="49" 
+                   rows="4"
                    minLength="10"
                    maxLength="300"
                    defaultValue={`@${replyingTo} `} 
@@ -35,6 +44,7 @@ function ReplyForm({presentUser, replyingTo, addNewReply, id, setShowReplyForm})
                 <button type="submit" className="button active reply">Reply</button>
                    <Warning showWarning={showWarning}/>
             </form>
+                <CancelBtn setShowReplyForm={setShowReplyForm}/>
             
         </div>
     )

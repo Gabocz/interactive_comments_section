@@ -4,12 +4,16 @@ import {CurrentUser} from './data';
 import {CommentsData} from './data';
 import {useState} from 'react';
 import { v4 as uuidv4 } from 'uuid'
+import WindowConfirmation from './components/WindowConfirmation';
 
 
 function App() {
 
   const [presentUser, SetPresentUser] = useState(CurrentUser)
   const [comments, SetComments] = useState(CommentsData)
+  const [showConfirmation, setShowConfirmation] = useState(false)
+  const [confirmDelete, setConfirmDelete] = useState(false)
+  const [clickedId, setClickedId] = useState()
 
  const createNewComment = (content)  => {
     if(10 < content.length  && content.length < 300) {
@@ -88,10 +92,10 @@ function App() {
 }
   
   const deleteComment = (id) => {
-    const commentToUpdate = customFilter(comments, 'id', id)
+      const commentToUpdate = customFilter(comments, 'id', id)
     if(commentToUpdate.id === id) {
-      const newComments = comments.filter(comment => comment.id !== id)
-      SetComments(newComments)
+       const newComments = comments.filter(comment => comment.id !== id)
+       SetComments(newComments)
     } else {
        const updatedReplies = commentToUpdate.replies.filter(reply => reply.id !== id)
        const updatedComment = {...commentToUpdate, replies : updatedReplies}
@@ -99,12 +103,26 @@ function App() {
        newComments.push(updatedComment)
        SetComments(newComments)
     }
+  setShowConfirmation(false)
+}
 
-  }
  
   return (
     <div className="App">
-      <Container comments={comments} presentUser={presentUser} createNewComment={createNewComment} deleteComment={deleteComment} updateComment={updateComment} addNewReply={addNewReply}/>
+
+      {showConfirmation && <WindowConfirmation setConfirmDelete={setConfirmDelete} deleteComment={deleteComment} setShowConfirmation={setShowConfirmation} clickedId={clickedId}/>}
+
+      <Container 
+        comments={comments} 
+        presentUser={presentUser} 
+        createNewComment={createNewComment} 
+        deleteComment={deleteComment} 
+        updateComment={updateComment} 
+        addNewReply={addNewReply}
+        setShowConfirmation={setShowConfirmation}
+        confirmDelete={confirmDelete}
+        setClickedId={setClickedId}
+        />
       
     </div>
   );

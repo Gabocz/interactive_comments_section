@@ -8,7 +8,7 @@ function NewComment({presentUser, createNewComment}) {
 
    const handleInputChange = (e) => {
     setNewCommentContent(e.target.value)
-    if(newCommentContent.length < 10) {
+    if(e.target.value.length < 10) {
         setShowWarning(true)
     } else {
         setShowWarning(false)
@@ -35,10 +35,10 @@ function NewComment({presentUser, createNewComment}) {
                    cols="60" 
                    rows="3"
                    minLength="10" 
-                   maxLength="300"
+                   maxLength="250"
                    value={newCommentContent} 
                    onChange={handleInputChange}
-                   placeholder="Min. 10, max. 300 characters..."
+                   placeholder="Min. 10, max. 250 characters..."
                    autoFocus
                    ></textarea>
                 <button type="submit" className="button active reply send">Send</button>

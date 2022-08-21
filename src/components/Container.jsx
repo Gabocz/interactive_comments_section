@@ -45,7 +45,9 @@ function Container({comments, presentUser, createNewComment, deleteComment, upda
               )
               })  
             }
-              <NewComment presentUser={presentUser} createNewComment={createNewComment}/>
+              <NewComment 
+                presentUser={presentUser} 
+                createNewComment={createNewComment}/>
 
         </main>
     )

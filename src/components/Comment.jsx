@@ -5,6 +5,7 @@ import EditBtnComponent from "./EditBtnComponent"
 import EditForm from "./EditForm"
 import ReplyForm from "./ReplyForm"
 import CurrentUserSign from "./CurrentUserSign"
+import CancelBtn from "./CancelBtn"
 import {useState} from 'react'
 
 function Comment({comment, presentUser, updateComment, addNewReply, setShowConfirmation, deleteComment, confirmDelete, setClickedId}) {
@@ -25,13 +26,14 @@ function Comment({comment, presentUser, updateComment, addNewReply, setShowConfi
                  <span className="createdAt">{comment.createdAt}</span>
               </div>
               <div className="commentText">
-                 { isBeingEdited && <EditForm comment={comment} updateComment={updateComment} id={id} setIsBeingEdited={setIsBeingEdited}/> }
+                 { isBeingEdited && <EditForm comment={comment} updateComment={updateComment} id={id} isBeingEdited={isBeingEdited} setIsBeingEdited={setIsBeingEdited}/> }
                  { !isBeingEdited && <p> {comment.replyingTo && <span className="replyingTo">@{comment.replyingTo}</span>} {comment.content}</p> }
                </div>
               </div>
                  {presentUser.username===user.username && <DeleteBtnComponent setShowConfirmation={setShowConfirmation} id={id} deleteComment={deleteComment} confirmDelete={confirmDelete} setClickedId={setClickedId}/>}
                  {presentUser.username===user.username && <EditBtnComponent setIsBeingEdited={setIsBeingEdited}/>}
                  {presentUser.username!==user.username && <ReplyBtnComponent setShowReplyForm={setShowReplyForm}/>}
+           {isBeingEdited && <CancelBtn isBeingEdited={isBeingEdited} setIsBeingEdited={setIsBeingEdited}/>}
            </div>
            {showReplyForm && <ReplyForm 
               presentUser={presentUser} 

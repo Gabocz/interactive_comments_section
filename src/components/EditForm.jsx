@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-function EditForm({comment, id, updateComment, setIsBeingEdited}) {
+function EditForm({comment, id, updateComment, isBeingEdited, setIsBeingEdited}) {
     const [commentContent, setCommentContent] = useState(comment.content)
     
     
@@ -22,9 +22,10 @@ function EditForm({comment, id, updateComment, setIsBeingEdited}) {
 
         <div>
             <form onSubmit={handleSubmit}>
-            <textarea onChange={handleInputChange} className="textarea edit" cols="60" rows="4" defaultValue={comment.replyingTo ? `@${comment.replyingTo} ${comment.content}` : comment.content}></textarea>
+            <textarea onChange={handleInputChange} className="textarea edit" cols="59" rows="4" maxLength="250" defaultValue={comment.replyingTo ? `@${comment.replyingTo} ${comment.content}` : comment.content}></textarea>
             <button type="submit" className="button active update">UPDATE</button>
             </form>
+            
         </div>
     )
 }

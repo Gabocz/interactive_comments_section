@@ -8,7 +8,7 @@ function ReplyForm({presentUser, replyingTo, addNewReply, id, setShowReplyForm})
 
     const handleInputChange = (e) => {
       setReplyContent(e.target.value.replace(`@${replyingTo} `, ''))
-      if(replyContent.length < 10) {
+      if(e.target.value.replace(`@${replyingTo} `, '').length < 10) {
           setShowWarning(true)
       } else {
           setShowWarning(false)
@@ -37,7 +37,7 @@ function ReplyForm({presentUser, replyingTo, addNewReply, id, setShowReplyForm})
                    cols="49" 
                    rows="4"
                    minLength="10"
-                   maxLength="300"
+                   maxLength="250"
                    defaultValue={`@${replyingTo} `} 
                    onChange={handleInputChange}>
                    </textarea>

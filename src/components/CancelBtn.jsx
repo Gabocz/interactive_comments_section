@@ -1,12 +1,17 @@
-function CancelBtn({setShowReplyForm}) {
+function CancelBtn({setShowReplyForm, isBeingEdited, setIsBeingEdited}) {
   const handleClick = () => {
-    setShowReplyForm(false)
+    if(isBeingEdited) {
+      setIsBeingEdited(false)
+      return
+    } else {
+      setShowReplyForm(false)
+    }
   }
     
 
   return (
     <div>
-        <button onClick={handleClick} className="button active cancel">Cancel</button>
+        <button onClick={handleClick} className={isBeingEdited ? "button active cancel edit" : "button active cancel"} >Cancel</button>
     </div>
   )
 }

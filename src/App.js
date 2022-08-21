@@ -71,7 +71,7 @@ function App() {
   }
 
     const addNewReply = (content, replyingTo, id)  => {
-      if(content.length > 10 && content.length < 300) {
+      if(content.length > 10) {
       const newReply = {
         id: uuidv4(),
         content: content, 

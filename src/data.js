@@ -1,6 +1,6 @@
   export const CurrentUser =  {
     "image": { 
-      "png": "./images/avatars/image-juliusomo.png",
+      "png": "/assets/images/avatars/image-juliusomo.png",
       "webp": "./images/avatars/image-juliusomo.webp"
     },
     "username": "juliusomo"
@@ -15,7 +15,7 @@
       "score": 12,
       "user": {
         "image": { 
-          "png": "./images/avatars/image-amyrobson.png",
+          "png": "/assets/images/avatars/image-amyrobson.png",
           "webp": "./images/avatars/image-amyrobson.webp"
         },
         "username": "amyrobson"
@@ -29,7 +29,7 @@
       "score": 5,
       "user": {
         "image": { 
-          "png": "./images/avatars/image-maxblagun.png",
+          "png": "/assets/images/avatars/image-maxblagun.png",
           "webp": "./images/avatars/image-maxblagun.webp"
         },
         "username": "maxblagun"
@@ -43,7 +43,7 @@
           "replyingTo": "maxblagun",
           "user": {
             "image": { 
-              "png": "./images/avatars/image-ramsesmiron.png",
+              "png": "/assets/images/avatars/image-ramsesmiron.png",
               "webp": "./images/avatars/image-ramsesmiron.webp"
             },
             "username": "ramsesmiron"
@@ -58,7 +58,7 @@
           "replyingTo": "ramsesmiron",
           "user": {
             "image": { 
-              "png": "./images/avatars/image-juliusomo.png",
+              "png": "/assets/images/avatars/image-juliusomo.png",
               "webp": "./images/avatars/image-juliusomo.webp"
             },
             "username": "juliusomo"

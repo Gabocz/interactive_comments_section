@@ -340,7 +340,7 @@ body {
     top: 205px;
   }
 
-  #minusBtn {
+  .minusBtn {
     display: flex;
     align-items: center;
   }

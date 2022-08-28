@@ -28,7 +28,7 @@ function NewComment({presentUser, createNewComment}) {
     return (
         <div className="card newComment">
             <form action="#" onSubmit={handleSubmit}>
-                <img className="profileImg presUser" src={presentUser.image.png} alt="user profile" name= "userImg"/>
+                <img className="profileImg presUser" src={process.env.PUBLIC_URL + presentUser.image.png} alt="user profile"/>
                 <textarea 
                    className="textarea" 
                    name="content"

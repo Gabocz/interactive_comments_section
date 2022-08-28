@@ -20,7 +20,7 @@ function Comment({comment, presentUser, updateComment, addNewReply, setShowConfi
               <RatingComponent comment={comment} presentUser={presentUser}/>
                <div>
                  <div className="user">
-                 <img className="profileImg" src={user.image.png} alt="user" />
+                 <img className="profileImg" src={process.env.PUBLIC_URL + user.image.png} alt="user" />
                  <span className="username">{user.username}</span>
                  {presentUser.username===user.username && <CurrentUserSign/>}
                  <span className="createdAt">{comment.createdAt}</span>

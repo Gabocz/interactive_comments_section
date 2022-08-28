@@ -212,6 +212,7 @@ body {
 .button.active.reply {
   position: absolute;
   right: 20px;
+  margin-left: 10px;
 }
 
 .button.active.update {
@@ -229,11 +230,12 @@ body {
   right: 20px;
   top: 58px;
   font-size: 12px;
+  margin-left: 10px;
 }
 
 .button.active.cancel.edit {
   left: 160px;
-  top: 182px;
+  top: 183px;
 }
 
 

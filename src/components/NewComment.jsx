@@ -41,7 +41,7 @@ function NewComment({presentUser, createNewComment}) {
                    placeholder="Min. 10, max. 250 characters..."
                    autoFocus
                    ></textarea>
-                <button type="submit" className="button active reply send">Send</button>
+                <button type="submit" className="button active reply">Send</button>
                    <Warning showWarning={showWarning}/>
             </form>
         </div>

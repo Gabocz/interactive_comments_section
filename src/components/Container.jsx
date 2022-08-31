@@ -11,10 +11,10 @@ function Container({comments, presentUser, createNewComment, deleteComment, upda
             {comments.map((comment) => {
               return (
                 <>
-                <div>
+                <div key={comment.id}>
                   <Comment 
                     comment={comment} 
-                    key={comment.id} 
+                     key={comment.id} 
                     presentUser={presentUser} 
                     deleteComment={deleteComment} 
                     updateComment={updateComment}
@@ -26,7 +26,7 @@ function Container({comments, presentUser, createNewComment, deleteComment, upda
                 </div>
                 {comment.replies && comment.replies.length > 0 && comment.replies.map((reply => {
                   return (
-                   <div>
+                   <div key={reply.id} >
                   <Comment comment={reply} 
                     key={reply.id} 
                     presentUser={presentUser}

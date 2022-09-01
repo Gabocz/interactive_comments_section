@@ -1,5 +1,6 @@
 import Comment from "./Comment"
 import NewComment from "./NewComment"
+import { v4 as uuidv4 } from 'uuid'
 
 
 
@@ -10,11 +11,11 @@ function Container({comments, presentUser, createNewComment, deleteComment, upda
             
             {comments.map((comment) => {
               return (
-                <>
+                <div key={uuidv4()}>
                 <div>
                   <Comment 
                     comment={comment} 
-                    key={comment.id} 
+                     key={comment.id} 
                     presentUser={presentUser} 
                     deleteComment={deleteComment} 
                     updateComment={updateComment}
@@ -26,7 +27,7 @@ function Container({comments, presentUser, createNewComment, deleteComment, upda
                 </div>
                 {comment.replies && comment.replies.length > 0 && comment.replies.map((reply => {
                   return (
-                   <div>
+                   <div key={uuidv4()}>
                   <Comment comment={reply} 
                     key={reply.id} 
                     presentUser={presentUser}
@@ -40,8 +41,7 @@ function Container({comments, presentUser, createNewComment, deleteComment, upda
                   </div>
                   )
                 }))}
-                 
-                </>
+                </div>
               )
               })  
             }

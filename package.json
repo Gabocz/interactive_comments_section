@@ -1,7 +1,7 @@
 {
   "name": "interactive_comments_section_app",
   "version": "0.1.0",
-  "homepage": "https://gabocz.github.io/interactive_comments_section/",
+  "homepage": "https://gabocz.github.io/interactive_comments_section",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",

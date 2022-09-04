@@ -103,7 +103,6 @@ body {
   justify-content: space-around;
   border-radius: 6px;
   margin-right: 20px;
-  padding: 6px 0;
 }
 
 .button {
@@ -210,6 +209,12 @@ body {
 }
 
 .button.active.reply {
+  position: absolute;
+  right: 20px;
+  margin-left: 10px;
+}
+
+.button.active.send {
   position: absolute;
   right: 20px;
   margin-left: 10px;
@@ -348,7 +353,7 @@ body {
   }
 
   .textarea {
-    height: 80px;
+    height: 90px;
     width: 290px;
     margin-left: 0;
     margin-bottom: 0px;
@@ -358,10 +363,10 @@ body {
     bottom: 20px;
   }
 
-  .button.active.reply.send {
+  /* .button.active.reply.send {
     bottom: 20px;
     right: 20px;
-  }
+  } */
 
   .warning {
     margin-left: 0px;
@@ -384,18 +389,37 @@ body {
     top: 198px;
   }
 
-  .button.active.cancel.edit {
-    top: 159px;
-    left: 110px;
+  .button.active.cancel.edit.mobile {
+    left: 120px;
+    top: 200px;
   }
 
   .button.active.update {
-    top: 200px;
+    top: 195px;
     margin-top: 5px;
 
   }
+
+  .ratingComponent.isBeingEdited.mobile {
+    display: none
   }
-  
 
+  .btnComponent.mobile {
+    display: none;
+  }
 
+  .btnComponent.delete.isBeingEdited {
+    right: 20px;
+  }
 
+  .button.active.update {
+    position: absolute;
+    left: 20px;
+  }
+
+  .button.active.send {
+    bottom: 20px;
+    right: 20px;
+  }
+
+}

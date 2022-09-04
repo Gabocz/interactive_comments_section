@@ -5,7 +5,6 @@ import EditBtnComponent from "./EditBtnComponent"
 import EditForm from "./EditForm"
 import ReplyForm from "./ReplyForm"
 import CurrentUserSign from "./CurrentUserSign"
-import CancelBtn from "./CancelBtn"
 import {useState} from 'react'
 
 function Comment({comment, presentUser, updateComment, addNewReply, setShowConfirmation, deleteComment, confirmDelete, setClickedId}) {
@@ -17,7 +16,7 @@ function Comment({comment, presentUser, updateComment, addNewReply, setShowConfi
     return ( 
         <>
            <div className={comment.replyingTo ? "card comment reply addMarginTop" : "card comment"}  id={id}>
-              <RatingComponent comment={comment} presentUser={presentUser}/>
+              <RatingComponent comment={comment} presentUser={presentUser} isBeingEdited={isBeingEdited}/>
                <div>
                  <div className="user">
                  <img className="profileImg" src={process.env.PUBLIC_URL + user.image.png} alt="user" />
@@ -30,16 +29,16 @@ function Comment({comment, presentUser, updateComment, addNewReply, setShowConfi
                  { !isBeingEdited && <p> {comment.replyingTo && <span className="replyingTo">@{comment.replyingTo}</span>} {comment.content}</p> }
                </div>
               </div>
-                 {presentUser.username===user.username && <DeleteBtnComponent setShowConfirmation={setShowConfirmation} id={id} deleteComment={deleteComment} confirmDelete={confirmDelete} setClickedId={setClickedId}/>}
-                 {presentUser.username===user.username && <EditBtnComponent setIsBeingEdited={setIsBeingEdited}/>}
+                 {presentUser.username===user.username && <DeleteBtnComponent setShowConfirmation={setShowConfirmation} id={id} deleteComment={deleteComment} confirmDelete={confirmDelete} setClickedId={setClickedId} isBeingEdited={isBeingEdited}/>}
+                 {presentUser.username===user.username && <EditBtnComponent setIsBeingEdited={setIsBeingEdited} isBeingEdited={isBeingEdited}/>}
                  {presentUser.username!==user.username && <ReplyBtnComponent setShowReplyForm={setShowReplyForm}/>}
-           {isBeingEdited && <CancelBtn isBeingEdited={isBeingEdited} setIsBeingEdited={setIsBeingEdited}/>}
-           </div>
+             </div>
            {showReplyForm && <ReplyForm 
               presentUser={presentUser} 
               id={comment.id} 
               replyingTo={user.username} 
-              addNewReply={addNewReply} setShowReplyForm={setShowReplyForm}/>}
+              addNewReply={addNewReply} 
+              setShowReplyForm={setShowReplyForm}/>}
         </>
         )
 }

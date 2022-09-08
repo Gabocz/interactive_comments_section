@@ -28,8 +28,8 @@ function ReplyForm({presentUser, replyingTo, addNewReply, id, setShowReplyForm})
 
 
     return (
-        <div className="card reply addMarginTop">
-            <form action="#" onSubmit={handleSubmit}>
+        <div className="card comment reply addMarginTop">
+            <form action="#" onSubmit={handleSubmit} id="reply-form">
                 <img className="profileImg presUser" src={process.env.PUBLIC_URL + presentUser.image.png} alt="user profile" name= "userImg"/>
                 <textarea 
                    className="textarea" 
@@ -41,11 +41,12 @@ function ReplyForm({presentUser, replyingTo, addNewReply, id, setShowReplyForm})
                    defaultValue={`@${replyingTo} `} 
                    onChange={handleInputChange}>
                    </textarea>
-                <button type="submit" className="button active reply">Reply</button>
-                   <Warning showWarning={showWarning}/>
+                   {showWarning && <Warning/>}
             </form>
+             <div className='btnContainer'>
+                <button type="submit" form="reply-form" className="button active reply">Reply</button>
                 <CancelBtn setShowReplyForm={setShowReplyForm}/>
-            
+                </div>
         </div>
     )
 }

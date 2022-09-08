@@ -14,6 +14,7 @@ function App() {
   const [showConfirmation, setShowConfirmation] = useState(false)
   const [confirmDelete, setConfirmDelete] = useState(false)
   const [clickedId, setClickedId] = useState()
+ 
 
  const createNewComment = (content)  => {
     if(10 < content.length  && content.length < 300) {

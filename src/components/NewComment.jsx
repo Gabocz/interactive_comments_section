@@ -1,9 +1,9 @@
 import {useState} from 'react'
 import Warning from './Warning'
 
-function NewComment({presentUser, createNewComment}) {
+function NewComment({presentUser, createNewComment, showWarning, setShowWarning}) {
     const [newCommentContent, setNewCommentContent] = useState('')
-    const [showWarning, setShowWarning] = useState(false)
+    
     
 
    const handleInputChange = (e) => {
@@ -39,10 +39,9 @@ function NewComment({presentUser, createNewComment}) {
                    value={newCommentContent} 
                    onChange={handleInputChange}
                    placeholder="Min. 10, max. 250 characters..."
-                   autoFocus
                    ></textarea>
                 <button type="submit" className="button active send">Send</button>
-                   <Warning showWarning={showWarning}/>
+                   {showWarning && <Warning/>}
             </form>
         </div>
     )

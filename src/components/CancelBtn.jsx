@@ -11,7 +11,7 @@ function CancelBtn({setShowReplyForm, isBeingEdited, setIsBeingEdited}) {
 
   return (
     <div>
-        <button onClick={handleClick} className={isBeingEdited ? "button active cancel edit mobile" : "button active cancel"} >Cancel</button>
+        <button onClick={handleClick} className={isBeingEdited ? "button active cancel edit" : "button active cancel"} >Cancel</button>
     </div>
   )
 }

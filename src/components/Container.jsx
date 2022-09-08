@@ -1,10 +1,11 @@
 import Comment from "./Comment"
 import NewComment from "./NewComment"
 import { v4 as uuidv4 } from 'uuid'
-
+import { useState } from 'react'
 
 
 function Container({comments, presentUser, createNewComment, deleteComment, updateComment, addNewReply, setShowConfirmation, confirmDelete, setClickedId}) {
+  const [showWarning, setShowWarning] = useState(false)
    
       return (
         <main className="container">
@@ -47,7 +48,10 @@ function Container({comments, presentUser, createNewComment, deleteComment, upda
             }
               <NewComment 
                 presentUser={presentUser} 
-                createNewComment={createNewComment}/>
+                createNewComment={createNewComment}
+                showWarning={showWarning}
+                setShowWarning={setShowWarning}
+                />
 
         </main>
     )

@@ -41,6 +41,7 @@ body {
   border-radius: 8px;
   padding: 20px;
   position: relative;
+  display: flex;
 }
 
 .card.reply {
@@ -49,12 +50,12 @@ body {
 
 }
 
-.addMarginTop {
-  margin-top: 20px;
+.card.newComment.textarea {
+  margin-right: 18px;
 }
 
-.comment {
-  display: flex;
+.addMarginTop {
+  margin-top: 20px;
 }
 
 
@@ -209,21 +210,18 @@ body {
 }
 
 .button.active.reply {
-  position: absolute;
-  right: 20px;
-  margin-left: 10px;
+  margin-bottom: 8px;
 }
 
 .button.active.send {
   position: absolute;
   right: 20px;
-  margin-left: 10px;
 }
 
 .button.active.update {
-   margin-top: 10px;
    display: flex;
    justify-content: center;
+   margin-right: 8px;
 }
 
 .button.active.cancel {
@@ -231,17 +229,24 @@ body {
   color: var(--softRed);
   font-weight: 900;
   outline: 1px solid var(--softRed);
-  position: absolute;
-  right: 20px;
-  top: 58px;
-  font-size: 12px;
-  margin-left: 10px;
+  padding: 7px 14px ;
+  display: flex;
+  justify-content: center;
 }
 
-.button.active.cancel.edit {
-  left: 160px;
-  top: 183px;
+
+.btnContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 18px;
 }
+
+.btnContainer.edit {
+  flex-direction: row;
+  align-items: center;
+  margin-left: auto;
+  margin-top: 10px;
+  }
 
 
 .button.active.confirmCancel {
@@ -272,6 +277,11 @@ body {
   font-size: 11px;
   margin-left: 50px;
   margin-top: 0px;
+  margin-bottom: 3px;
+}
+
+.warning.edit {
+  margin-left: 0;
 }
 
 .hidden {
@@ -317,19 +327,19 @@ body {
   margin-bottom: 5px;
 }
 
+
+
 @media (max-width: 850px) {
   .card {
     width: 345px;
     min-height: 250px;
+    flex-direction: column;
   }
 
   .card.reply {
     width: 330px;
-    transform: translateX(15px)
-  }
-
-  .comment {
-    flex-direction: column;
+    transform: translateX(15px);
+    position: relative;
   }
 
  
@@ -344,7 +354,7 @@ body {
   }
 
   .btnComponent {
-    top: 205px;
+    top: 210px;
   }
 
   .minusBtn {
@@ -353,8 +363,9 @@ body {
   }
 
   .textarea {
-    height: 90px;
+    height: 120px;
     width: 290px;
+    padding: 6px;
     margin-left: 0;
     margin-bottom: 0px;
   }
@@ -363,43 +374,41 @@ body {
     bottom: 20px;
   }
 
-  /* .button.active.reply.send {
-    bottom: 20px;
-    right: 20px;
-  } */
-
+ 
   .warning {
     margin-left: 0px;
+    font-size: 10px;
   }
 
   .card.newComment {
-    min-height: 180px;
+    min-height: 210px;
   }
 
   .card.newComment .textarea {
     width: 305px;
   }
 
+  .commentText {
+    margin-top: 11px;
+  }
+
+  .btnContainer {
+    flex-direction: row;
+    margin-left: auto;
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+  }
+
+  .btnContainer.edit {
+    left: 20px;
+  }
+
   .button.active.reply {
-    bottom: 20px;
-    right: 110px;
+    margin-right: 10px;
   }
 
-  .button.active.cancel {
-    top: 198px;
-  }
-
-  .button.active.cancel.edit.mobile {
-    left: 120px;
-    top: 200px;
-  }
-
-  .button.active.update {
-    top: 195px;
-    margin-top: 5px;
-
-  }
-
+ 
   .ratingComponent.isBeingEdited.mobile {
     display: none
   }
@@ -412,11 +421,7 @@ body {
     right: 20px;
   }
 
-  .button.active.update {
-    position: absolute;
-    left: 20px;
-  }
-
+ 
   .button.active.send {
     bottom: 20px;
     right: 20px;

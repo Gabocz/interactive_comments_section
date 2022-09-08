@@ -15,7 +15,7 @@ function Comment({comment, presentUser, updateComment, addNewReply, setShowConfi
 
     return ( 
         <>
-           <div className={comment.replyingTo ? "card comment reply addMarginTop" : "card comment"}  id={id}>
+           <div className={comment.replyingTo ? "card reply addMarginTop" : "card"}  id={id}>
               <RatingComponent comment={comment} presentUser={presentUser} isBeingEdited={isBeingEdited}/>
                <div>
                  <div className="user">
@@ -38,7 +38,8 @@ function Comment({comment, presentUser, updateComment, addNewReply, setShowConfi
               id={comment.id} 
               replyingTo={user.username} 
               addNewReply={addNewReply} 
-              setShowReplyForm={setShowReplyForm}/>}
+              setShowReplyForm={setShowReplyForm}
+              />}
         </>
         )
 }

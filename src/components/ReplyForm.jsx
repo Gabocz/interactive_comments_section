@@ -28,13 +28,13 @@ function ReplyForm({presentUser, replyingTo, addNewReply, id, setShowReplyForm})
 
 
     return (
-        <div className="card comment reply addMarginTop">
+        <div className="card newComment addMarginTop">
             <form action="#" onSubmit={handleSubmit} id="reply-form">
                 <img className="profileImg presUser" src={process.env.PUBLIC_URL + presentUser.image.png} alt="user profile" name= "userImg"/>
                 <textarea 
                    className="textarea" 
                    name="content"
-                   cols="49" 
+                   cols="60" 
                    rows="4"
                    minLength="10"
                    maxLength="250"

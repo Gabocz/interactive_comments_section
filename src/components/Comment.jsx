@@ -14,7 +14,7 @@ function Comment({comment, presentUser, updateComment, addNewReply, setShowConfi
     const [showReplyForm, setShowReplyForm] = useState(false)
 
     return ( 
-        <>
+        <> 
             <div className={comment.replyingTo ? "card reply addMarginTop" : "card"}  id={id}>
               <RatingComponent comment={comment} presentUser={presentUser} isBeingEdited={isBeingEdited}/>
                <div>

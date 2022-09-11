@@ -26,6 +26,7 @@ function Container({comments, presentUser, createNewComment, deleteComment, upda
                     setClickedId={setClickedId}
                  />
                 </div>
+                <div className="leftBorder">
                 {comment.replies && comment.replies.length > 0 && comment.replies.map((reply => {
                   return (
                    <div key={uuidv4()}>
@@ -42,6 +43,7 @@ function Container({comments, presentUser, createNewComment, deleteComment, upda
                   </div>
                   )
                 }))}
+                </div>
                 </div>
               )
               })  

@@ -45,8 +45,8 @@ body {
 }
 
 .card.reply {
-  width: 650px;
-  transform: translateX(100px);
+  width: 660px;
+  transform: translateX(45px);
 
 }
 
@@ -329,6 +329,10 @@ body {
   margin-bottom: 5px;
 }
 
+.leftBorder {
+  border-left: 2.7px solid lightgray;
+  transform: translateX(45px);
+}
 
 @media (max-width: 850px) {
   .card {
@@ -427,6 +431,10 @@ body {
   .button.active.send {
     bottom: 20px;
     right: 20px;
+  }
+
+  .leftBorder {
+    transform: translateX(0);
   }
 
 }
